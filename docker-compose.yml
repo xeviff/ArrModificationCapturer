@@ -1,0 +1,11 @@
+---
+version: "2.1"
+services:
+  arr-update-capturer:
+    container_name: mangrana_java_after_update
+    image: xeviff/arr-update-capturer:latest
+    restart: unless-stopped
+    volumes:
+      - ./config:/config
+      - /jobs/sonarr:/jobs/sonarr
+      - /jobs/radarr:/jobs/radarr

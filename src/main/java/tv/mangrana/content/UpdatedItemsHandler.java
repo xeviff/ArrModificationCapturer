@@ -33,7 +33,9 @@ public class UpdatedItemsHandler {
     }
 
     public static void main(String[] args) throws IncorrectWorkingReferencesException {
+        log("********* Process started *******************");
         new UpdatedItemsHandler().process();
+        log("********* Process finished ******************");
     }
 
     private void process() {
