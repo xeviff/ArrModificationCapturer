@@ -26,7 +26,7 @@ public class SonarrUpdateHandler implements UpdateHandler {
         String path = sonarrJobFile.getInfo(SONARR_SERIES_PATH);
         PlexCommandLauncher plexRefresher = new PlexCommandLauncher(configFileLoader);
         plexRefresher.scanByPath(path);
-        sonarrJobFile.markDone();
+        sonarrJobFile.forceMarkDone();
     }
 
 }
