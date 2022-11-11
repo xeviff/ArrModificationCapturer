@@ -3,6 +3,7 @@ package tv.mangrana.content.sonarr.jobs;
 import tv.mangrana.config.ConfigFileLoader;
 import tv.mangrana.content.UpdateHandler;
 import tv.mangrana.exception.IncorrectWorkingReferencesException;
+import tv.mangrana.jobs.JobFile;
 import tv.mangrana.plex.url.PlexCommandLauncher;
 
 import java.io.File;
@@ -22,7 +23,7 @@ public class SonarrUpdateHandler implements UpdateHandler {
     }
 
     public void handle(File jobFile) throws IncorrectWorkingReferencesException {
-        SonarrJobFile sonarrJobFile = new SonarrJobFile(jobFile);
+        JobFile<SonarrJobFile.UpdateInfo> sonarrJobFile = new SonarrJobFile(jobFile);
         String path = sonarrJobFile.getInfo(SONARR_SERIES_PATH);
         PlexCommandLauncher plexRefresher = new PlexCommandLauncher(configFileLoader);
         plexRefresher.scanByPath(path);
